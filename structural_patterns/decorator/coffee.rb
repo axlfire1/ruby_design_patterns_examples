@@ -1,7 +1,5 @@
 require_relative 'beverage'
 
-require 'byebug'
-
 class Coffee
   def cost
     puts('the cost 50$')
