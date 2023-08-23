@@ -1,15 +1,32 @@
 class FireWall
-  attr_accessor :source, :destination, :protocol
-
-  def initialize(source:, destination:, protocol: 'tcp')
+  
+  def source(source)
     @source = source
+
+    self
+  end
+
+  def destination(destination)
     @destination = destination
+
+    self
+  end
+
+  def protocol(protocol)
     @protocol = protocol
+
+    self
+  end
+
+  def enable
+    puts("activated on: source: #{ @source }, destination: #{ @destination }, protocol: #{ @protocol }")
   end
 end
 
-fw = FireWall.new(destination: 'localhost', source: 'xxx.com')
+fw = FireWall.new
 
-puts fw.source
-puts fw.destination
-puts fw.protocol
+fw
+  .destination("google.com")
+  .source("localhost")
+  .protocol("http")
+  .enable
