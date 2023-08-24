@@ -24,6 +24,18 @@ end
 class Red < Color
 end
 
-puts Blue.new(object: 'car').rgb
-puts Green.new(object: 'car').rgb
-puts Red.new(object: 'car').rgb
+# puts Blue.new(object: 'car').rgb
+# puts Green.new(object: 'car').rgb
+# puts Red.new(object: 'car').rgb
+
+require 'rspec'
+
+RSpec.describe Red do
+  subject { described_class.new(object: 'car') }
+
+  it 'raises an error' do
+    expect do
+      subject.rgb
+    end.to raise_error(NotImplementedError, 'called abstraction method: rgb')
+  end
+end
