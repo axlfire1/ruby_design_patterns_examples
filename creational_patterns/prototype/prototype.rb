@@ -24,6 +24,9 @@ class Prototype
   # deep_copy is the usual Marshalling hack to make a deep copy. But it's rather
   # slow and inefficient, therefore, in real applications, use a special gem
   private def deep_copy(object)
+    # The marshaling library converts collections of Ruby objects into a byte stream,
+    # allowing them to be stored outside the currently active script. This data may 
+    # subsequently be read and the original objects reconstituted.
     Marshal.load(Marshal.dump(object))
   end
 end
