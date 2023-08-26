@@ -18,6 +18,7 @@ p1.primitive = 245
 p1.component = Time.now
 p1.circular_reference = ComponentWithBackReference.new(p1)
 
+# clona instancias ya existentes
 p2 = p1.clone
 
 if p1.primitive == p2.primitive
